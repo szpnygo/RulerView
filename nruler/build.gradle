@@ -39,9 +39,10 @@ dependencies {
 
 def siteUrl = 'https://github.com/szpnygo/RulerView'
 def gitUrl = 'https://github.com/szpnygo/RulerView.git'
-group = "com.neobaran.open"
-version = "0.0.2"
+def libraryName = 'ruler-view'
 
+group = "com.neobaran.open"
+version = "0.0.3"
 
 task sourcesJar(type: Jar) {
     from android.sourceSets.main.java.srcDirs
@@ -58,6 +59,7 @@ install {
             project {
                 packaging 'aar'
                 name 'Android custom ruler-view'
+                artifactId libraryName
                 url siteUrl
                 licenses {
                     license {
@@ -92,7 +94,7 @@ bintray {
     configurations = ['archives']
     pkg {
         repo = "neo-open"
-        name = "ruler-view"
+        name = libraryName
         desc = 'Android custom ruler-view'
         websiteUrl = siteUrl
         vcsUrl = gitUrl

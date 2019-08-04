@@ -5,7 +5,7 @@
 ## 依赖
  [ ![Download](https://api.bintray.com/packages/st2udio/neo-open/ruler-view/images/download.svg) ](https://bintray.com/st2udio/neo-open/ruler-view/_latestVersion)
 
-`implementation 'com.neobaran.open:nruler:0.0.2'`
+`implementation 'com.neobaran.open:ruler-view:0.0.3'`
 
 
 ## 效果图
