@@ -94,7 +94,6 @@ bintray {
     pkg {
         repo = "neo-open"
         name = "ruler-view"
-        group=
         desc = 'Android custom ruler-view'
         websiteUrl = siteUrl
         vcsUrl = gitUrl
