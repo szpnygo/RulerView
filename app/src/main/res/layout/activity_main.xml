@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".MainActivity">
+
+
+    <TextView
+            android:id="@+id/height_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_color_high"
+            android:textSize="18sp"
+            android:layout_marginTop="12dp"
+            android:layout_gravity="center_horizontal"
+            android:text="103"
+    />
+
+    <LinearLayout
+            android:id="@+id/height_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginTop="8dp"
+            android:orientation="vertical"
+            android:background="@drawable/ic_round_bg"
+    >
+
+        <com.neobaran.open.android.nruler.RulerView
+                android:id="@+id/height_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="4dp"
+                app:numDigits="0"
+                app:numValue="80"
+                app:numMinValue="40"
+                app:numMaxValue="250"
+                app:numTextColor="@color/secondary_text"
+                app:textSize="12sp"
+                app:textSpaceHeight="6dp"
+                app:centerLineColor="#f24b16"
+                app:sideLineColor="#bcbcbc"
+                app:centerLineHeight="16dp"
+                app:sideLineHeight="8dp"
+                app:unitStr="cm"
+        />
+
+    </LinearLayout>
+
+    <TextView
+            android:id="@+id/weight_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_color_high"
+            android:textSize="18sp"
+            android:layout_marginTop="16dp"
+            android:layout_gravity="center_horizontal"
+            android:text="103.5kg"
+    />
+
+    <LinearLayout
+            android:id="@+id/weight_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginTop="8dp"
+            android:orientation="vertical"
+            android:background="@drawable/ic_round_bg"
+    >
+
+        <com.neobaran.open.android.nruler.RulerView
+                android:id="@+id/weight_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="4dp"
+                app:numDigits="1"
+                app:numValue="80"
+                app:numMinValue="5"
+                app:numMaxValue="300"
+                app:numTextColor="@color/secondary_text"
+                app:textSize="12sp"
+                app:textSpaceHeight="6dp"
+                app:centerLineColor="#f24b16"
+                app:sideLineColor="#bcbcbc"
+                app:centerLineHeight="16dp"
+                app:sideLineHeight="8dp"
+        />
+
+    </LinearLayout>
+
+
+</LinearLayout>
