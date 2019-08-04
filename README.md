@@ -1,6 +1,8 @@
 # RuleView
 
-身高体重的自定义尺寸，支持各种精度
+左右滑动的自定义尺子，支持各种精度
+
+依赖库不包括边框，边框可以自行添加。仓库中有当前边框的代码
 
 ## 依赖
  [ ![Download](https://api.bintray.com/packages/st2udio/neo-open/ruler-view/images/download.svg) ](https://bintray.com/st2udio/neo-open/ruler-view/_latestVersion)
