@@ -12,13 +12,13 @@ apply plugin: 'com.github.dcendents.android-maven'
 
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 29
 
     defaultConfig {
         minSdkVersion 21
-        targetSdkVersion 28
-        versionCode 2
-        versionName "0.0.2"
+        targetSdkVersion 29
+        versionCode 4
+        versionName "0.0.4"
     }
 
     buildTypes {
@@ -32,8 +32,8 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'androidx.appcompat:appcompat:1.0.2'
-    implementation 'androidx.core:core-ktx:1.0.2'
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.core:core-ktx:1.1.0'
 }
 
 
@@ -42,7 +42,7 @@ def gitUrl = 'https://github.com/szpnygo/RulerView.git'
 def libraryName = 'ruler-view'
 
 group = "com.neobaran.open"
-version = "0.0.3"
+version = "0.0.4"
 
 task sourcesJar(type: Jar) {
     from android.sourceSets.main.java.srcDirs

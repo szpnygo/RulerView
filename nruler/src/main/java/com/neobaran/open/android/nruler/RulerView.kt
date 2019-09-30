@@ -16,7 +16,11 @@ import kotlin.math.pow
 import kotlin.math.roundToInt
 
 @SuppressLint("RestrictedApi")
-class RulerView @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) :
+class RulerView @JvmOverloads constructor(
+    context: Context,
+    attrs: AttributeSet? = null,
+    defStyleAttr: Int = 0
+) :
     View(context, attrs, defStyleAttr) {
 
     private val mScroller: Scroller = Scroller(context)
@@ -64,15 +68,26 @@ class RulerView @JvmOverloads constructor(context: Context, attrs: AttributeSet?
 
     private var valueListener: ((value: Float) -> Unit)? = null
 
+    private var moveSpeed: Int = 600
+
     init {
         attrs?.let {
             val array =
-                TintTypedArray.obtainStyledAttributes(getContext(), attrs, R.styleable.RulerView, defStyleAttr, 0)
+                TintTypedArray.obtainStyledAttributes(
+                    getContext(),
+                    attrs,
+                    R.styleable.RulerView,
+                    defStyleAttr,
+                    0
+                )
 
             with(array) {
-                numTextColor = getColor(R.styleable.RulerView_numTextColor, Color.parseColor("#000000"))
-                sideLineColor = getColor(R.styleable.RulerView_sideLineColor, Color.parseColor("#bcbcbc"))
-                centerLineColor = getColor(R.styleable.RulerView_centerLineColor, Color.parseColor("#f24b16"))
+                numTextColor =
+                    getColor(R.styleable.RulerView_numTextColor, Color.parseColor("#000000"))
+                sideLineColor =
+                    getColor(R.styleable.RulerView_sideLineColor, Color.parseColor("#bcbcbc"))
+                centerLineColor =
+                    getColor(R.styleable.RulerView_centerLineColor, Color.parseColor("#f24b16"))
 
                 mValue = getInt(R.styleable.RulerView_numValue, 50)
                 digits = getInt(R.styleable.RulerView_numDigits, 0)
@@ -89,9 +104,11 @@ class RulerView @JvmOverloads constructor(context: Context, attrs: AttributeSet?
                 sideLineHeight = getDimension(R.styleable.RulerView_sideLineHeight, 0f)
 
 
-                if(hasValue(R.styleable.RulerView_unitStr)){
+                if (hasValue(R.styleable.RulerView_unitStr)) {
                     unitStr = getString(R.styleable.RulerView_unitStr)
                 }
+
+                moveSpeed = getInt(R.styleable.RulerView_moveSpeed, 600)
 
                 recycle()
             }
@@ -201,20 +218,42 @@ class RulerView @JvmOverloads constructor(context: Context, attrs: AttributeSet?
 
             xPosition = centerPosition + i * perWidth - mMove
             if (xPosition + paddingEnd < mWidgetWidth && mValue + i <= mMaxValue) {
-                drawLine(xPosition, lineHeight, xPosition, mWidgetHeight.toFloat() - paddingBottom, mLinePaint)
+                drawLine(
+                    xPosition,
+                    lineHeight,
+                    xPosition,
+                    mWidgetHeight.toFloat() - paddingBottom,
+                    mLinePaint
+                )
                 if ((mValue + i) % 10 == 0) {
                     val textWidth = Layout.getDesiredWidth(getShowNumber(mValue + i), mTextPaint)
-                    drawText(getShowNumber(mValue + i), xPosition - textWidth / 2f, textHeight, mTextPaint)
+                    drawText(
+                        getShowNumber(mValue + i),
+                        xPosition - textWidth / 2f,
+                        textHeight,
+                        mTextPaint
+                    )
                 }
             }
 
 
             xPosition = centerPosition - i * perWidth - mMove
             if (xPosition > paddingStart && mValue - i >= mMinValue) {
-                drawLine(xPosition, lineHeight, xPosition, mWidgetHeight.toFloat() - paddingBottom, mLinePaint)
+                drawLine(
+                    xPosition,
+                    lineHeight,
+                    xPosition,
+                    mWidgetHeight.toFloat() - paddingBottom,
+                    mLinePaint
+                )
                 if ((mValue - i) % 10 == 0) {
                     val textWidth = Layout.getDesiredWidth(getShowNumber(mValue + i), mTextPaint)
-                    drawText(getShowNumber(mValue - i), xPosition - textWidth / 2f, textHeight, mTextPaint)
+                    drawText(
+                        getShowNumber(mValue - i),
+                        xPosition - textWidth / 2f,
+                        textHeight,
+                        mTextPaint
+                    )
                 }
             }
 
@@ -266,11 +305,12 @@ class RulerView @JvmOverloads constructor(context: Context, attrs: AttributeSet?
     }
 
     private fun countVelocityTracker(event: MotionEvent) {
-        mVelocityTracker.computeCurrentVelocity(1000)
+        mVelocityTracker.computeCurrentVelocity(moveSpeed)
         val xVelocity = mVelocityTracker.xVelocity
         if (abs(xVelocity) > mMinVelocity) {
-            mScroller.fling(0, 0, xVelocity.toInt(), 0, Int.MAX_VALUE, Int.MAX_VALUE, 0, 0)
+            mScroller.fling(0, 0, xVelocity.toInt(), 0, Int.MIN_VALUE, Int.MAX_VALUE, 0, 0)
         }
+        postInvalidate()
     }
 
     private fun countMoveEnd() {

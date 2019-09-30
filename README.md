@@ -82,7 +82,7 @@ numMinValue | 数字最小值
 numValue | 数字值
 numShow | 页面显示数字数量，
 unitStr | 单位
-
+moveSpeed | 移动速度 600
 
 License
 ---

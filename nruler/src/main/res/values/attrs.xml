@@ -21,6 +21,8 @@
         <attr name="textSize" format="dimension"/>
 
         <attr name="unitStr" format="string"/>
+
+        <attr name="moveSpeed" format="integer"/>
     </declare-styleable>
 
 </resources>
