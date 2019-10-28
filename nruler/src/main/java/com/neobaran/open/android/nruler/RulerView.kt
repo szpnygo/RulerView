@@ -11,6 +11,7 @@ import android.util.AttributeSet
 import android.view.*
 import android.widget.Scroller
 import androidx.appcompat.widget.TintTypedArray
+import java.util.*
 import kotlin.math.abs
 import kotlin.math.pow
 import kotlin.math.roundToInt
@@ -373,5 +374,5 @@ class RulerView @JvmOverloads constructor(
 }
 
 fun Double.nFormat(decimal: Int = 1): Double {
-    return String.format("%.${decimal}f", this).toDouble()
+    return String.format(Locale.US, "%.${decimal}f", this).toDouble()
 }
