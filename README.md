@@ -4,6 +4,13 @@
 
 依赖库不包括边框，边框可以自行添加。仓库中有当前边框的代码
 
+本项目是在开发一款Android App的过程中开发的
+
+欢迎大家体验
+
+https://play.google.com/store/apps/details?id=com.neobaran.app.bmi
+
+
 ## 依赖
  [ ![Download](https://api.bintray.com/packages/st2udio/neo-open/ruler-view/images/download.svg) ](https://bintray.com/st2udio/neo-open/ruler-view/_latestVersion)
 
